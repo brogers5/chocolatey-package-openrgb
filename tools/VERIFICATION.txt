@@ -1,13 +1,24 @@
-﻿
-Note: Include this file if including binaries you have the right to distribute. 
-Otherwise delete. this file. If you are the software author, you can change this
-mention you are the author of the software.
-
-===DELETE ABOVE THIS LINE AND THIS LINE===
-
 VERIFICATION
 Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
  
-<Include details of how to verify checksum contents>
-<If software vendor, explain that here - checksum verification instructions are optional>
+The packaged ZIP archives are available for independent download via the Releases page on OpenRGB's
+website. The Releases page is at the following URL:
+https://openrgb.org/releases.html
+
+For convenience, these are direct URLs to the relevant archives:
+https://openrgb.org/releases/release_0.7/OpenRGB_0.7_Windows_32_6128731.zip
+https://openrgb.org/releases/release_0.7/OpenRGB_0.7_Windows_64_6128731.zip
+
+The following PowerShell pipeline will calculate and print a SHA256 hash for each archive:
+
+    Get-FileHash -Path @('OpenRGB_0.7_Windows_32_6128731.zip', 'OpenRGB_0.7_Windows_64_6128731.zip') -Algorithm SHA256 | Select-Object -Property Path, Hash
+
+This pipeline should be executed against both independently downloaded archives, as well as the
+copies distributed with the package. Both copies of each archive should have identical hash values.
+A matching hash value should confirm that no corruption or tampering has occurred during this package's
+generation process.
+
+For reference, the following SHA256 hashes were calculated during the package's automated creation:
+OpenRGB_0.7_Windows_32_6128731.zip: F057B90BCF9F0F7B55D0E0DC7E63C34F80FEB43F609F800C0A68CCC4B5370ABD
+OpenRGB_0.7_Windows_64_6128731.zip: 4BEE9C65C6EAC32EA5472F7F68390E86F28AB12BA4250360413E257FD7F0778A

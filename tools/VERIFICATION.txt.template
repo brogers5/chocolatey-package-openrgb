@@ -1,0 +1,24 @@
+﻿VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+ 
+The packaged ZIP archives are available for independent download via the Releases page on OpenRGB's
+website. The Releases page is at the following URL:
+https://openrgb.org/releases.html
+
+For convenience, these are direct URLs to the relevant archives:
+%url32%
+%url64%
+
+The following PowerShell pipeline will calculate and print a %checksumType% hash for each archive:
+
+    Get-FileHash -Path @('%file32%', '%file64%') -Algorithm %checksumType% | Select-Object -Property Path, Hash
+
+This pipeline should be executed against both independently downloaded archives, as well as the
+copies distributed with the package. Both copies of each archive should have identical hash values.
+A matching hash value should confirm that no corruption or tampering has occurred during this package's
+generation process.
+
+For reference, the following %checksumType% hashes were calculated during the package's automated creation:
+%file32%: %checksum32%
+%file64%: %checksum64%
