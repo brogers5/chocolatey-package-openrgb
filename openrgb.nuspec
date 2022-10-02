@@ -16,7 +16,7 @@
     <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_0.7</projectSourceUrl>
     <docsUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/home</docsUrl>
     <bugTrackerUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues</bugTrackerUrl>
-    <tags>openrgb rgb amd asrock asus alienware aura clevo cooler master cooler-master corsair crucial das-keyboard das keyboard ducky evga galax gigabyte hyperx logitech msi nzxt pstriot philips polychrom qmk razer redragon sapphire sony tecknet thermaltake yeelight zalman qt portable cross-platform foss</tags>
+    <tags>openrgb rgb amd asrock asus alienware aura clevo cooler master cooler-master corsair crucial das-keyboard das keyboard ducky evga galax gigabyte hyperx logitech msi nzxt patriot philips polychrom qmk razer redragon sapphire sony tecknet thermaltake yeelight zalman qt portable cross-platform foss</tags>
     <summary>Open source RGB lighting control that doesn't depend on manufacturer software</summary>
     <description><![CDATA[
 ---
