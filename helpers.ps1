@@ -77,8 +77,8 @@ function Get-DownloadUris($RelevantReleaseInfo, [Version] $Version, [string] $Re
     }
 
     return @{
-        Url32 = "https://openrgb.org/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.Version.ToString(2))_Windows_32_$($RelevantReleaseInfo.CommitShortId).zip"
-        Url64 = "https://openrgb.org/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.Version.ToString(2))_Windows_64_$($RelevantReleaseInfo.CommitShortId).zip"
+        Url32 = "https://openrgb.org/up_/up_/static/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.Version.ToString(2))_Windows_32_$($RelevantReleaseInfo.CommitShortId).zip"
+        Url64 = "https://openrgb.org/up_/up_/static/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.Version.ToString(2))_Windows_64_$($RelevantReleaseInfo.CommitShortId).zip"
     }
 }
 
