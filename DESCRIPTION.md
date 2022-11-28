@@ -27,6 +27,7 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 
 ## Package Parameters
 
+* `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start OpenRGB after installation completes.
 
 ## Package Notes

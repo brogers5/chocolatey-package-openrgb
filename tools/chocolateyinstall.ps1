@@ -30,14 +30,18 @@ foreach ($archiveFileName in $archiveFileNames)
 }
 
 $softwareName = 'OpenRGB'
-
-#Create Start Menu shortcut
-$programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
-$shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath "$softwareName.lnk"
-$targetPath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath 'OpenRGB.exe'
-Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
+$binaryFileName = 'OpenRGB.exe'
+$linkName = "$softwareName.lnk"
+$targetPath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath $binaryFileName
 
 $pp = Get-PackageParameters
+if (!$pp.NoProgramsShortcut)
+{
+  $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
+  $shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath $linkName
+  Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
+}
+
 if ($pp.Start)
 {
   try
