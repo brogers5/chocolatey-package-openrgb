@@ -1,6 +1,8 @@
 
 ---
+
 ### [choco://openrgb](choco://openrgb)
+
 To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
 
 ---
@@ -12,6 +14,7 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 ![OpenRGB Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@9faeed858d7ecbb7ae71fd125e7565cf0131876d/Screenshot.png)
 
 ### Features
+
 * Set colors and select effect modes for a wide variety of RGB hardware
 * Save and load profiles
 * Control lighting from third party software using the OpenRGB SDK
@@ -23,9 +26,11 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 * Graphical view of device LEDs makes creating custom patterns easy
 
 ## Package Parameters
+
 * `/Start` - Automatically start OpenRGB after installation completes.
 
 ## Package Notes
+
 Chocolatey will create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
 
 ---
