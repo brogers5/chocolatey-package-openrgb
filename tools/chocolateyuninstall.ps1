@@ -1,9 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-$programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
-$shortcutFilePath = Join-Path -Path $programsDirectory -ChildPath 'OpenRGB.lnk'
+$linkName = 'OpenRGB.lnk'
 
-if (Test-Path -Path $shortcutFilePath)
-{
-    Remove-Item -Path $shortcutFilePath -Force
+$programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
+$programsShortcutFilePath = Join-Path -Path $programsDirectory -ChildPath $linkName
+if (Test-Path $programsShortcutFilePath) {
+  Remove-Item $programsShortcutFilePath
+}
+
+$desktopDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::DesktopDirectory)
+$desktopShortcutFilePath = Join-Path -Path $desktopDirectory -ChildPath $linkName
+if (Test-Path $desktopShortcutFilePath) {
+  Remove-Item $desktopShortcutFilePath
 }

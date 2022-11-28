@@ -35,6 +35,13 @@ $linkName = "$softwareName.lnk"
 $targetPath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath $binaryFileName
 
 $pp = Get-PackageParameters
+if (!$pp.NoDesktopShortcut)
+{
+  $desktopDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::DesktopDirectory)
+  $shortcutFilePath = Join-Path -Path $desktopDirectory -ChildPath $linkName
+  Install-ChocolateyShortcut -ShortcutFilePath $shortcutFilePath -TargetPath $targetPath -ErrorAction SilentlyContinue
+}
+
 if (!$pp.NoProgramsShortcut)
 {
   $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
