@@ -57,23 +57,15 @@ function Get-RelevantReleaseInfo($ReleaseInfo, [string] $ReleaseUri)
     }
 }
 
-function Get-DownloadUris($RelevantReleaseInfo, [Version] $Version, [string] $ReleaseUri)
+function Get-DownloadUris($RelevantReleaseInfo, [Version] $Version)
 {
-    if ($null -ne $RelevantReleaseInfo)
+    if ($null -eq $RelevantReleaseInfo -and $null -ne $Version)
     {
-        if ([uri]::IsWellFormedUriString($ReleaseUri, 'Absolute'))
-        {`
-            $RelevantReleaseInfo = Get-RelevantReleaseInfo -ReleaseUri $releaseUri
-        }
-        elseif ($null -ne $Version)
-        {
-            #TODO: Map any package fix versions to underlying software version
+        #TODO: Map any package fix versions to underlying software version
 
-
-            $tagName = Get-TagName -Version $Version
-            $ReleaseUri = Get-SpecificReleaseUri -TagName $tagName 
-            $RelevantReleaseInfo = Get-ReleaseInfo -ReleaseUri $releaseUri
-        }
+        $tagName = Get-TagName -Version $Version
+        $releaseUri = Get-SpecificReleaseUri -TagName $tagName 
+        $RelevantReleaseInfo = Get-RelevantReleaseInfo -ReleaseUri $releaseUri
     }
 
     return @{
