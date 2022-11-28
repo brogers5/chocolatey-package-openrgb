@@ -37,11 +37,11 @@ function global:au_AfterUpdate ($Package)  {
 function global:au_SearchReplace {
     @{
         "$($Latest.PackageName).nuspec" = @{
-            "<packageSourceUrl>[^<]*</packageSourceUrl>" = "<packageSourceUrl>https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)</packageSourceUrl>"
-            "<licenseUrl>[^<]*</licenseUrl>" = "<licenseUrl>https://gitlab.com/$($softwareRepo)/-/blob/$($softwareTag)/LICENSE</licenseUrl>"
-            "<projectSourceUrl>[^<]*</projectSourceUrl>" = "<projectSourceUrl>https://gitlab.com/$($softwareRepo)/-/tree/$($softwareTag)</projectSourceUrl>"
-            "<releaseNotes>[^<]*</releaseNotes>" = "<releaseNotes>https://gitlab.com/$($softwareRepo)/-/releases/$($softwareTag)</releaseNotes>"
-            "<copyright>[^<]*</copyright>" = "<copyright>Copyright (C) $(Get-Date -Format yyyy) Adam Honse</copyright>"
+            "(<packageSourceUrl>)[^<]*(</packageSourceUrl>)" = "`$1https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)`$2"
+            "(<licenseUrl>)[^<]*(</licenseUrl>)" = "`$1https://gitlab.com/$($softwareRepo)/-/blob/$($softwareTag)/LICENSE`$2"
+            "(<projectSourceUrl>)[^<]*(</projectSourceUrl>)" = "`$1https://gitlab.com/$($softwareRepo)/-/tree/$($softwareTag)`$2"
+            "(<releaseNotes>)[^<]*(</releaseNotes>)" = "`$1https://gitlab.com/$($softwareRepo)/-/releases/$($softwareTag)`$2"
+            "(<copyright>)[^<]*(</copyright>)" = "`$1Copyright (C) $(Get-Date -Format yyyy) Adam Honse`$2"
         }
         'tools\VERIFICATION.txt' = @{
             '%url32%' = "$($Latest.Url32)"
