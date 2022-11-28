@@ -27,13 +27,14 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 
 ## Package Parameters
 
+* `/NoShim` - Opt out of creating a GUI shim.
 * `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
 * `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start OpenRGB after installation completes.
 
 ## Package Notes
 
-Chocolatey will create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
+This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
 
 ---
 

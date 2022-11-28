@@ -35,6 +35,13 @@ $linkName = "$softwareName.lnk"
 $targetPath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath $binaryFileName
 
 $pp = Get-PackageParameters
+if ($pp.NoShim)
+{
+  #Create shim ignore file
+  $ignoreFilePath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath "$binaryFileName.ignore"
+  Set-Content -Path $ignoreFilePath -Value $null -ErrorAction SilentlyContinue
+}
+
 if (!$pp.NoDesktopShortcut)
 {
   $desktopDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::DesktopDirectory)
