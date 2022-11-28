@@ -31,7 +31,7 @@ function global:au_AfterUpdate ($Package)  {
     Set-Content -Path $licensePath -Value "From: $licenseUri`r`n`r`n$licenseContents"
 
     #Archive the current source code to prepare for possible redistribution requests, as required by GPLv2
-    Get-SourceCode -Version [Version] $($Latest.Version)
+    Get-SourceCode -Version $($Latest.Version)
 }
 
 function global:au_SearchReplace {
