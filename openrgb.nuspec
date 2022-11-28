@@ -3,24 +3,26 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>openrgb</id>
-    <version>0.7</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.7</packageSourceUrl>
+    <version>0.8</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.8</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>OpenRGB</title>
     <authors>Adam Honse (CalcProgrammer1)</authors>
     <projectUrl>https://openrgb.org/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png</iconUrl>
     <copyright>Copyright (C) 2022 Adam Honse</copyright>
-    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_0.7/LICENSE</licenseUrl>
+    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_0.8/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_0.7</projectSourceUrl>
+    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_0.8</projectSourceUrl>
     <docsUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/home</docsUrl>
     <bugTrackerUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues</bugTrackerUrl>
     <tags>openrgb rgb amd asrock asus alienware aura clevo cooler master cooler-master corsair crucial das-keyboard das keyboard ducky evga galax gigabyte hyperx logitech msi nzxt patriot philips polychrom qmk razer redragon sapphire sony tecknet thermaltake yeelight zalman qt portable cross-platform foss</tags>
     <summary>Open source RGB lighting control that doesn't depend on manufacturer software</summary>
     <description><![CDATA[
 ---
+
 ### [choco://openrgb](choco://openrgb)
+
 To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
 
 ---
@@ -32,6 +34,7 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 ![OpenRGB Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@9faeed858d7ecbb7ae71fd125e7565cf0131876d/Screenshot.png)
 
 ### Features
+
 * Set colors and select effect modes for a wide variety of RGB hardware
 * Save and load profiles
 * Control lighting from third party software using the OpenRGB SDK
@@ -43,20 +46,29 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 * Graphical view of device LEDs makes creating custom patterns easy
 
 ## Package Parameters
+
+* `/NoShim` - Opt out of creating a GUI shim.
+* `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
+* `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start OpenRGB after installation completes.
 
 ## Package Notes
-Chocolatey will create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
+
+This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
+
+---
+
+When using the `/Start` package parameter, you may see a large `CLIXML` block logged to `stderr`. This is [a known issue](https://github.com/chocolatey/choco/issues/1016) with Chocolatey's `Start-ChocolateyProcessAsAdmin` cmdlet, and is not necessarily indicative of an error condition. Until this is addressed, you should ensure the `failOnStandardError` feature is disabled while installing/upgrading this package.
 
 ---
 
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
 
 ```shell
-choco feature enable -n=useRememberedArgumentsForUpgrades
+choco feature enable --name=useRememberedArgumentsForUpgrades
 ```
 ]]></description>
-    <releaseNotes>https://gitlab.com/CalcProgrammer1/OpenRGB/-/releases/release_0.7</releaseNotes>
+    <releaseNotes>https://gitlab.com/CalcProgrammer1/OpenRGB/-/releases/release_0.8</releaseNotes>
     <dependencies>
       <dependency id="vcredist140" version="14.20.27508.1" />
     </dependencies>
