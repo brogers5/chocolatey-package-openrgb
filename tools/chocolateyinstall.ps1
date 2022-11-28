@@ -60,7 +60,9 @@ if ($pp.Start)
 {
   try
   {
-    Start-Process -FilePath $targetPath -ErrorAction Continue
+    #Spawn a separate temporary PowerShell instance to prevent display of console output
+    $statement = "Start-Process -FilePath ""$targetPath"""
+    Start-ChocolateyProcessAsAdmin -Statements $statement -NoSleep -ErrorAction SilentlyContinue
   }
   catch
   {
