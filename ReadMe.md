@@ -5,21 +5,21 @@
 
 ## Install
 
-[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved version on the Chocolatey Community Repository:
+[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved stable version from the Chocolatey Community Repository:
 
 ```shell
-choco install openrgb
+choco install openrgb --source="'https://community.chocolatey.org/api/v2'"
 ```
 
 Alternatively, the packages as published on the Chocolatey Community Repository will also be mirrored on this repository's [Releases page](https://github.com/brogers5/chocolatey-package-openrgb/releases). The `nupkg` can be installed from the current directory (with dependencies sourced from the Community Repository) as follows:
 
 ```shell
-choco install openrgb -source="'.;https://community.chocolatey.org/api/v2/'"
+choco install openrgb --source="'.;https://community.chocolatey.org/api/v2/'"
 ```
 
 ## Build
 
-[Install Chocolatey](https://chocolatey.org/install) and the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), then clone this repository.
+[Install Chocolatey](https://chocolatey.org/install), and the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), then clone this repository.
 
 Once cloned, simply run `build.ps1`. The ZIP archives are intentionally untracked to avoid bloating the repository, so the script will download the OpenRGB portable ZIP archives from the official distribution point, then packs everything together.
 
