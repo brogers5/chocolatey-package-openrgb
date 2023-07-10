@@ -1,7 +1,7 @@
 ﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png" width="48" height="48"/> Chocolatey Package: [OpenRGB](https://community.chocolatey.org/packages/openrgb)
 
-[![Chocolatey package version](https://img.shields.io/chocolatey/v/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
-[![Chocolatey package download count](https://img.shields.io/chocolatey/dt/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
+[![Latest package version shield](https://img.shields.io/chocolatey/v/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
+[![Total package download count shield](https://img.shields.io/chocolatey/dt/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
 
 ## Install
 
@@ -23,9 +23,10 @@ choco install openrgb --source="'.;https://community.chocolatey.org/api/v2/'"
 
 Once cloned, simply run `build.ps1`. The ZIP archives are intentionally untracked to avoid bloating the repository, so the script will download the OpenRGB portable ZIP archives from the official distribution point, then packs everything together.
 
-A successful build will create `openrgb.x.y.nupkg`, where `x.y` should be the Nuspec's `version` value at build time.
+A successful build will create either `openrgb.x.y.nupkg` (in Chocolatey versions prior to v2.0.0) or `openrgb.x.y.0.nupkg`, where `x.y` should be the Nuspec's normalized `version` value at build time.
 
-Note that Chocolatey package builds are non-deterministic. Consequently, an independently built package will fail a checksum validation against officially published packages.
+>**Note**
+>Chocolatey package builds are non-deterministic. Consequently, an independently built package's checksum will not match that of the officially published package.
 
 ## Update
 
