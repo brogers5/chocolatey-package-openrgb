@@ -74,6 +74,6 @@ function Get-LatestVersionInfo {
         SoftwareVersion = $version
         Url32           = $downloadUris.Url32
         Url64           = $downloadUris.Url64
-        Version         = $version #This may change if building a package fix version
+        Version         = "$version.0" #This may change if building a package fix version
     }
 }
