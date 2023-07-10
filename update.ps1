@@ -8,7 +8,7 @@ $softwareRepo = 'CalcProgrammer1/OpenRGB'
 
 function global:au_GetLatest {
     $latestInfo = Get-LatestVersionInfo
-    $script:softwareTag = Get-TagName -Version ([Version] $latestInfo.Version)
+    $script:softwareTag = Get-TagName -Version ([Version] $latestInfo.SoftwareVersion)
 
     return $latestInfo
 }
@@ -31,7 +31,7 @@ function global:au_AfterUpdate ($Package) {
     Set-Content -Path $licensePath -Value "From: $licenseUri`r`n`r`n$licenseContents"
 
     #Archive the current source code to prepare for possible redistribution requests, as required by GPLv2
-    Get-SourceCode -Version $($Latest.Version)
+    Get-SourceCode -Version $($Latest.SoftwareVersion)
 }
 
 function global:au_SearchReplace {

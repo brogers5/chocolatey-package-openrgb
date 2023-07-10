@@ -68,10 +68,12 @@ function Get-LatestVersionInfo {
     $latestReleaseInfo = $releasesInfo[0]
     $relevantReleaseInfo = Get-RelevantReleaseInfo -ReleaseInfo $latestReleaseInfo
     $downloadUris = Get-DownloadUris -RelevantReleaseInfo $relevantReleaseInfo
+    $version = $relevantReleaseInfo.Version.ToString(2)
 
     return @{
-        Url32   = $downloadUris.Url32
-        Url64   = $downloadUris.Url64
-        Version = $relevantReleaseInfo.Version.ToString(2)
+        SoftwareVersion = $version
+        Url32           = $downloadUris.Url32
+        Url64           = $downloadUris.Url64
+        Version         = $version #This may change if building a package fix version
     }
 }
