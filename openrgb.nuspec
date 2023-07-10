@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>openrgb</id>
-    <version>0.8</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.8</packageSourceUrl>
+    <version>0.9</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.9</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>OpenRGB</title>
     <authors>Adam Honse (CalcProgrammer1)</authors>
     <projectUrl>https://openrgb.org/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png</iconUrl>
-    <copyright>Copyright (C) 2022 Adam Honse</copyright>
-    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_0.8/LICENSE</licenseUrl>
+    <copyright>Copyright (C) 2023 Adam Honse</copyright>
+    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_0.9/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_0.8</projectSourceUrl>
+    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_0.9</projectSourceUrl>
     <docsUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/home</docsUrl>
     <bugTrackerUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues</bugTrackerUrl>
     <tags>openrgb rgb motherboard gpu ram keyboard headset led cross-platform foss</tags>
@@ -65,10 +65,10 @@ When using the `/Start` package parameter, you may see a large `CLIXML` block lo
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
 
 ```shell
-choco feature enable --name=useRememberedArgumentsForUpgrades
+choco feature enable --name="'useRememberedArgumentsForUpgrades'"
 ```
 ]]></description>
-    <releaseNotes>https://gitlab.com/CalcProgrammer1/OpenRGB/-/releases/release_0.8</releaseNotes>
+    <releaseNotes>https://gitlab.com/CalcProgrammer1/OpenRGB/-/releases/release_0.9</releaseNotes>
     <dependencies>
       <dependency id="vcredist140" version="14.20.27508.1" />
     </dependencies>

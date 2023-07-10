@@ -1,4 +1,4 @@
-From: https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/release_0.8/LICENSE
+From: https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/release_0.9/LICENSE
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
