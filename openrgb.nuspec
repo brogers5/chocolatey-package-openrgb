@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>openrgb</id>
-    <version>0.9</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.9</packageSourceUrl>
+    <version>0.9.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v0.9.0</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>OpenRGB</title>
     <authors>Adam Honse (CalcProgrammer1)</authors>
