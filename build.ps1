@@ -13,8 +13,8 @@ $global:Latest = @{
     Url64 = $downloadUris.Url64
 }
 
-Write-Host "Downloading..."
+Write-Output "Downloading..."
 Get-RemoteFiles -Purge -NoSuffix
 
-Write-Host "Creating package..."
+Write-Output "Creating package..."
 choco pack $nuspecFileRelativePath
