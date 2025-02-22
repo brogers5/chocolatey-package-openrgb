@@ -7,7 +7,7 @@ $toolsPath = Join-Path -Path $currentPath -ChildPath 'tools'
 $softwareRepo = 'CalcProgrammer1/OpenRGB'
 
 function global:au_GetLatest {
-    $latestInfo = Get-LatestVersionInfo
+    $latestInfo = Get-LatestStableVersionInfo
     $script:softwareTag = Get-TagName -Version ([Version] $latestInfo.SoftwareVersion)
 
     return $latestInfo

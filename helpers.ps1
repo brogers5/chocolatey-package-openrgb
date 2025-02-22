@@ -63,9 +63,9 @@ function Get-DownloadUris($RelevantReleaseInfo, [Version] $Version) {
     }
 }
 
-function Get-LatestVersionInfo {
+function Get-LatestStableVersionInfo {
     $releasesInfo = Invoke-RestMethod -Uri $gitLabReleasesUri -UserAgent $userAgent -UseBasicParsing
-    $latestReleaseInfo = $releasesInfo[0]
+    $latestReleaseInfo = $releasesInfo | Where-Object { $_.name -match 'release_\d\.\d+' } | Select-Object -First 1
     $relevantReleaseInfo = Get-RelevantReleaseInfo -ReleaseInfo $latestReleaseInfo
     $downloadUris = Get-DownloadUris -RelevantReleaseInfo $relevantReleaseInfo
     $version = $relevantReleaseInfo.Version.ToString(2)
