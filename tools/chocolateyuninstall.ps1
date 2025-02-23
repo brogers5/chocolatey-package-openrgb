@@ -1,5 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 
+$unzipLocation = Join-Path -Path (Get-ToolsLocation) -ChildPath $env:ChocolateyPackageName
+Remove-Item -Path $unzipLocation -Recurse -Force -ErrorAction SilentlyContinue
+
 $linkName = 'OpenRGB.lnk'
 
 $programsDirectory = [Environment]::GetFolderPath([Environment+SpecialFolder]::Programs)
@@ -13,3 +16,5 @@ $desktopShortcutFilePath = Join-Path -Path $desktopDirectory -ChildPath $linkNam
 if (Test-Path $desktopShortcutFilePath) {
   Remove-Item $desktopShortcutFilePath
 }
+
+Uninstall-BinFile -Name 'OpenRGB'

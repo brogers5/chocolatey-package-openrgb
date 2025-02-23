@@ -10,12 +10,13 @@ else {
   $extractedArchiveName = $archiveFileNames[1]
   $archiveDirectory = 'OpenRGB Windows 32-bit'
 }
-$toolsDirectory = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$toolsDirectory = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 $extractedArchivePath = Join-Path -Path $toolsDirectory -ChildPath $extractedArchiveName
+$unzipLocation = Join-Path -Path (Get-ToolsLocation) -ChildPath $env:ChocolateyPackageName
 
 $packageArgs = @{
   fileFullPath = $extractedArchivePath
-  destination  = $toolsDirectory
+  destination  = $unzipLocation
   packageName  = $env:ChocolateyPackageName
 }
 Get-ChocolateyUnzip @packageArgs
@@ -29,13 +30,15 @@ foreach ($archiveFileName in $archiveFileNames) {
 $softwareName = 'OpenRGB'
 $binaryFileName = 'OpenRGB.exe'
 $linkName = "$softwareName.lnk"
-$targetPath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath $binaryFileName
+$targetPath = Join-Path -Path $unzipLocation -ChildPath $archiveDirectory | Join-Path -ChildPath $binaryFileName
 
 $pp = Get-PackageParameters
+
 if ($pp.NoShim) {
-  #Create shim ignore file
-  $ignoreFilePath = Join-Path -Path $toolsDirectory -ChildPath $archiveDirectory | Join-Path -ChildPath "$binaryFileName.ignore"
-  Set-Content -Path $ignoreFilePath -Value $null -ErrorAction SilentlyContinue
+  Uninstall-BinFile -Name $softwareName
+}
+else {
+  Install-BinFile -Name $softwareName -Path $targetPath
 }
 
 if (!$pp.NoDesktopShortcut) {
