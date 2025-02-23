@@ -1,6 +1,6 @@
 ﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png" width="48" height="48"/> Chocolatey Package: [OpenRGB](https://community.chocolatey.org/packages/openrgb)
 
-[![Latest package version shield](https://img.shields.io/chocolatey/v/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
+[![Latest package version shield](https://img.shields.io/chocolatey/v/openrgb.svg?include_prereleases)](https://community.chocolatey.org/packages/openrgb)
 [![Total package download count shield](https://img.shields.io/chocolatey/dt/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
 
 ## Install
@@ -16,6 +16,8 @@ Alternatively, the packages as published on the Chocolatey Community Repository 
 ```shell
 choco install openrgb --source="'.;https://community.chocolatey.org/api/v2/'"
 ```
+
+This package also supports the project's Release Candidate builds. Opt into these with the `--prerelease` switch.
 
 ## Build
 
@@ -45,5 +47,15 @@ mklink /J openrgb ..\chocolatey-package-openrgb
 ```
 
 Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available. This will also build a new package version using the modified files.
+
+To limit the scope of update checks to a specific update channel, pass the `-IncludeStream` parameter with the desired Stream name:
+
+```powershell
+.\update.ps1 -IncludeStream 'Stable'
+```
+
+```powershell
+.\update.ps1 -IncludeStream 'ReleaseCandidate'
+```
 
 Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.

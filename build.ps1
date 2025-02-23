@@ -5,7 +5,7 @@ $currentPath = (Split-Path $MyInvocation.MyCommand.Definition)
 
 $nuspecFileRelativePath = Join-Path -Path $currentPath -ChildPath 'openrgb.nuspec'
 [xml] $nuspec = Get-Content $nuspecFileRelativePath
-$version = [Version] $nuspec.package.metadata.version
+$version = [semver] $nuspec.package.metadata.version
 $downloadUris = Get-DownloadUris -Version $version
 
 $global:Latest = @{
@@ -13,8 +13,8 @@ $global:Latest = @{
     Url64 = $downloadUris.Url64
 }
 
-Write-Output "Downloading..."
+Write-Output 'Downloading...'
 Get-RemoteFiles -Purge -NoSuffix
 
-Write-Output "Creating package..."
+Write-Output 'Creating package...'
 choco pack $nuspecFileRelativePath
