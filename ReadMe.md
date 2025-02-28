@@ -58,4 +58,10 @@ To limit the scope of update checks to a specific update channel, pass the `-Inc
 .\update.ps1 -IncludeStream 'ReleaseCandidate'
 ```
 
+To forcibly create an updated package (regardless of whether a new software version is available), pass the `-Force` switch:
+
+```powershell
+.\update.ps1 -Force
+```
+
 Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.

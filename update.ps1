@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param($IncludeStream)
+param($IncludeStream, [switch] $Force)
 Import-Module au
 
 $currentPath = (Split-Path $MyInvocation.MyCommand.Definition)
@@ -61,4 +61,4 @@ function global:au_SearchReplace {
     }
 }
 
-Update-Package -ChecksumFor None -IncludeStream $IncludeStream -NoReadme
+Update-Package -ChecksumFor None -IncludeStream $IncludeStream -Force:$Force -NoReadme
