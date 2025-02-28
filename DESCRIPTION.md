@@ -15,26 +15,3 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 * View device information
 * No official/manufacturer software required
 * Graphical view of device LEDs makes creating custom patterns easy
-
-## Package Parameters
-
-* `/NoShim` - Opt out of creating a GUI shim.
-* `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
-* `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
-* `/Start` - Automatically start OpenRGB after installation completes.
-
-## Package Notes
-
-This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) for `OpenRGB.exe`, as is typical for a portable application package. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
-
----
-
-When using the `/Start` package parameter, you may see a large `CLIXML` block logged to `stderr`. This is [a known issue](https://github.com/chocolatey/choco/issues/1016) with Chocolatey's `Start-ChocolateyProcessAsAdmin` cmdlet, and is not necessarily indicative of an error condition. Until this is addressed, you should ensure the `failOnStandardError` feature is disabled while installing/upgrading this package.
-
----
-
-For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
-
-```shell
-choco feature enable --name="'useRememberedArgumentsForUpgrades'"
-```

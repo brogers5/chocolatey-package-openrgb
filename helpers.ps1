@@ -2,15 +2,6 @@
 $gitLabReleasesUri = "https://gitlab.com/api/v4/projects/$gitlabProjectId/releases"
 $userAgent = 'Update checker of Chocolatey Community Package ''openrgb'''
 
-function Get-SourceCode([string] $TagName) {
-    $releaseInfoUri = Get-SpecificReleaseInfoUri -TagName $TagName
-    $releaseInfo = Invoke-RestMethod -Uri $releaseInfoUri -UserAgent $userAgent -UseBasicParsing
-    $assetUri = $releaseInfo.assets.sources[0].url
-    $version = Get-SemanticVersion -TagName $TagName
-
-    Invoke-WebRequest -Uri $assetUri -UserAgent $userAgent -OutFile ".\OpenRGB-release_$version.zip" -UseBasicParsing
-}
-
 function Get-SpecificReleaseInfoUri([string] $TagName) {
     return "$gitLabReleasesUri/$tagName"
 }
@@ -74,7 +65,7 @@ function Get-LatestStableVersionInfo {
         Tag             = $relevantReleaseInfo.TagName
         Url32           = $downloadUris.Url32
         Url64           = $downloadUris.Url64
-        Version         = $relevantReleaseInfo.Version #This may change if building a package fix version
+        Version         = $relevantReleaseInfo.Version.ToString() #This may change if building a package fix version
     }
 }
 
@@ -89,6 +80,6 @@ function Get-LatestReleaseCandidateVersionInfo {
         Tag             = $relevantReleaseInfo.TagName
         Url32           = $downloadUris.Url32
         Url64           = $downloadUris.Url64
-        Version         = $relevantReleaseInfo.Version  #This may change if building a package fix version
+        Version         = $relevantReleaseInfo.Version.ToString()  #This may change if building a package fix version
     }
 }

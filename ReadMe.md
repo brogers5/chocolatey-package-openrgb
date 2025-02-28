@@ -1,7 +1,19 @@
-﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png" width="48" height="48"/> Chocolatey Package: [OpenRGB](https://community.chocolatey.org/packages/openrgb)
+﻿<!--markdownlint-disable-next-line MD033 MD045 -->
+# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png" width="48" height="48" alt="OpenRGB icon"/> Chocolatey Package: [OpenRGB](https://community.chocolatey.org/packages/openrgb)
 
 [![Latest package version shield](https://img.shields.io/chocolatey/v/openrgb.svg?include_prereleases)](https://community.chocolatey.org/packages/openrgb)
 [![Total package download count shield](https://img.shields.io/chocolatey/dt/openrgb.svg)](https://community.chocolatey.org/packages/openrgb)
+
+---
+
+This package is part of a family of packages published for OpenRGB. This repository is for the meta package.
+
+* For the installer package, see [chocolatey-package-openrgb.install](https://github.com/brogers5/chocolatey-package-openrgb.install).
+* For the portable package, see [chocolatey-package-openrgb.portable](https://github.com/brogers5/chocolatey-package-openrgb.portable).
+
+See the [Chocolatey FAQs](https://docs.chocolatey.org/en-us/faqs) for more information on [meta packages](https://docs.chocolatey.org/en-us/faqs/#what-is-the-difference-between-packages-no-suffix-as-compared-to-install-portable) and [installer/portable packages](https://docs.chocolatey.org/en-us/faqs#what-distinction-does-chocolatey-make-between-an-installable-and-a-portable-application).
+
+---
 
 ## Install
 
@@ -21,13 +33,18 @@ This package also supports the project's Release Candidate builds. Opt into thes
 
 ## Build
 
-[Install Chocolatey](https://chocolatey.org/install), and the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au), then clone this repository.
+[Install Chocolatey](https://chocolatey.org/install), clone this repository, and run the following command in the cloned repository:
 
-Once cloned, simply run `build.ps1`. The ZIP archives are intentionally untracked to avoid bloating the repository, so the script will download the OpenRGB portable ZIP archives from the official distribution point, then packs everything together.
+```shell
+choco pack
+```
 
-A successful build will create either `openrgb.x.y.nupkg` (in Chocolatey versions prior to v2.0.0) or `openrgb.x.y.0.nupkg`, where `x.y` should be the Nuspec's normalized `version` value at build time.
+A successful build will create `openrgb.x.y.z.nupkg`, where `x.y.z` should be the Nuspec's normalized `version` value at build time.
 
->**Note**
+>[!Note]
+>As of Chocolatey v2.0.0, `version` values are normalized to contain a [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)-compliant patch number (i.e. only 2 segments will no longer be honored). Legacy package versions that did not contain these will be padded with a patch number of 0. Going forward, `version` will be padded accordingly for behavior consistency between v1 and v2 Chocolatey releases.
+
+>[!Note]
 >Chocolatey package builds are non-deterministic. Consequently, an independently built package's checksum will not match that of the officially published package.
 
 ## Update
@@ -64,4 +81,4 @@ To forcibly create an updated package (regardless of whether a new software vers
 .\update.ps1 -Force
 ```
 
-Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.
+Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the latest [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.
