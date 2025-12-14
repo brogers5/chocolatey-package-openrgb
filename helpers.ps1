@@ -69,9 +69,17 @@ function Get-LatestStableVersionInfo {
     }
 }
 
-function Get-LatestReleaseCandidateVersionInfo {
+function Get-LatestReleaseCandidateVersionInfo([switch] $WinRing0) {
     $releasesInfo = Invoke-RestMethod -Uri $gitLabReleasesUri -UserAgent $userAgent -UseBasicParsing
-    $latestReleaseInfo = $releasesInfo | Where-Object { $_.tag_name -match 'release_candidate_\d\.\d+rc\d+' } | Select-Object -First 1
+
+    if ($WinRing0) {
+        $tagPattern = 'release_candidate_\d\.\d+rc\d+wr0'
+    }
+    else {
+        $tagPattern = 'release_candidate_\d\.\d+rc\d+'
+    }
+    
+    $latestReleaseInfo = $releasesInfo | Where-Object { $_.tag_name -match $tagPattern } | Select-Object -First 1
     $relevantReleaseInfo = Get-RelevantReleaseInfo -ReleaseInfo $latestReleaseInfo
     $downloadUris = Get-DownloadUris -RelevantReleaseInfo $relevantReleaseInfo
 

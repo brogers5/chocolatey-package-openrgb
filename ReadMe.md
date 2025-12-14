@@ -75,6 +75,10 @@ To limit the scope of update checks to a specific update channel, pass the `-Inc
 .\update.ps1 -IncludeStream 'ReleaseCandidate'
 ```
 
+```powershell
+.\update.ps1 -IncludeStream 'ReleaseCandidateWinRing0'
+```
+
 To forcibly create an updated package (regardless of whether a new software version is available), pass the `-Force` switch:
 
 ```powershell
