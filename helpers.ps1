@@ -49,8 +49,8 @@ function Get-DownloadUris($RelevantReleaseInfo, [semver] $Version) {
     }
 
     return @{
-        Url32 = "https://openrgb.org/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.RawVersion)_Windows_32_$($RelevantReleaseInfo.CommitShortId).zip"
-        Url64 = "https://openrgb.org/releases/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.RawVersion)_Windows_64_$($RelevantReleaseInfo.CommitShortId).zip"
+        Url32 = "https://codeberg.org/OpenRGB/OpenRGB/releases/download/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.RawVersion)_Windows_32_$($RelevantReleaseInfo.CommitShortId).zip"
+        Url64 = "https://codeberg.org/OpenRGB/OpenRGB/releases/download/$($RelevantReleaseInfo.TagName)/OpenRGB_$($RelevantReleaseInfo.RawVersion)_Windows_64_$($RelevantReleaseInfo.CommitShortId).zip"
     }
 }
 
