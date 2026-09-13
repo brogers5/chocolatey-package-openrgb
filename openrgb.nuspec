@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>openrgb</id>
-    <version>1.0.0-rc3-1</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v1.0.0-rc3-1</packageSourceUrl>
+    <version>1.0.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-openrgb/tree/v1.0.0</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>OpenRGB</title>
     <authors>Adam Honse (CalcProgrammer1)</authors>
     <projectUrl>https://openrgb.org/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-openrgb@dd76d83044a6045e1882e53a7360fb8791811de5/openrgb.png</iconUrl>
     <copyright>Copyright (C) 2026 Adam Honse</copyright>
-    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_candidate_1.0rc3.1/LICENSE</licenseUrl>
+    <licenseUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/blob/release_1.0/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_candidate_1.0rc3.1</projectSourceUrl>
+    <projectSourceUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/tree/release_1.0</projectSourceUrl>
     <docsUrl>https://gitlab.com/OpenRGBDevelopers/OpenRGB-Wiki/-/blob/stable/home.md</docsUrl>
     <mailingListUrl>https://lemmy.today/c/OpenRGB</mailingListUrl>
     <bugTrackerUrl>https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues</bugTrackerUrl>
@@ -37,9 +37,9 @@ One of the biggest complaints about RGB is the software ecosystem surrounding it
 * No official/manufacturer software required
 * Graphical view of device LEDs makes creating custom patterns easy
 ]]></description>
-    <releaseNotes>https://codeberg.org/OpenRGB/OpenRGB/releases/tag/release_candidate_1.0rc3.1</releaseNotes>
+    <releaseNotes>https://codeberg.org/OpenRGB/OpenRGB/releases/tag/release_1.0</releaseNotes>
     <dependencies>
-      <dependency id="openrgb.portable" version="[1.0.0-rc3-1]" />
+      <dependency id="openrgb.portable" version="[1.0.0]" />
     </dependencies>
   </metadata>
   <files />
